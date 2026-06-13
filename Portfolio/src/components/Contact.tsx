@@ -104,7 +104,7 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="h-full"
           >
-            <Card className="border-[#00ADB5] border-2 bg-white shadow-2xl h-full">
+            <Card className="border-[#00ADB5] border-2 shadow-2xl h-full" style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}>
               <CardContent className="p-8 flex flex-col h-full">
                 <form
                   onSubmit={handleSubmit}

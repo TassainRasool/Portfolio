@@ -1,23 +1,9 @@
 import { motion } from "motion/react";
 import FloatingDots from "./FloatingDots";
-import { Button } from "./ui/button";
-import { Download, Dumbbell, Figma, Zap } from "lucide-react";
+import { Dumbbell, Figma, Zap } from "lucide-react";
 import profileImage from "../assets/DP.jpg";
 
 export function About() {
-  // Direct download link from Google Drive
-  const resumeDownloadUrl = "https://drive.google.com/file/d/1CecgX4v8faqXD8qT_YYSWRw4OZ46R6uA/view?usp=drive_link";
-
-  const handleDownload = () => {
-    // Create a temporary anchor element to trigger download
-    const link = document.createElement('a');
-    link.href = resumeDownloadUrl;
-    link.download = 'Resume.pdf'; // You can change the filename here
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section className="py-20 bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] relative overflow-hidden" id="about">
       <FloatingDots />
@@ -104,14 +90,6 @@ export function About() {
                 </div>
               </div>
 
-              <Button
-                size="lg"
-                className="bg-[#00ADB5] hover:bg-[#00ADB5]/90"
-                onClick={handleDownload}
-              >
-                <Download size={20} className="mr-2" />
-                Download Resume
-              </Button>
             </motion.div>
           </div>
         </div>

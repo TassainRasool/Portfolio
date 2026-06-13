@@ -9,8 +9,10 @@ import {
   Palette,
   Figma,
   Layers,
+  Download,
 } from "lucide-react";
 import profileImage from "../assets/Dp1.jpg";
+import resumePDF from "../assets/CV.pdf";
 
 function GreetingRotator() {
   const greetings = [
@@ -44,6 +46,15 @@ function GreetingRotator() {
 }
 
 export function Hero() {
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = resumePDF;
+    link.download = 'Tassain_Rasool_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const skills = [
     { icon: Palette, label: "UI/UX Design", color: "#00ADB5" },
     { icon: Figma, label: "Prototyping", color: "#00ADB5" },
@@ -166,10 +177,7 @@ export function Hero() {
                 UI/UX Designer & Visual Storyteller
               </h2>
               <p className="text-lg text-gray-400 leading-relaxed mb-8">
-              Specialized in design systems, multilingual and RTL interfaces, and end-to-end UX from research to developer
-handoff. Proven experience working with cross-functional teams on high-impact national and enterprise platforms.
-Strong Figma expertise focused on scalable, accessible, and production-ready design.
-update this line in hero section intead of I design intuitive section
+              I design intuitive, user-centered experiences — from research to pixel-perfect handoff. Specialized in design systems, multilingual and RTL interfaces, and accessible UI that scales across platforms and cultures.
               </p>
             </motion.div>
 
@@ -196,6 +204,14 @@ update this line in hero section intead of I design intuitive section
                 }
               >
                 Get In Touch
+              </Button>
+              <Button
+                size="lg"
+                className="bg-[#00ADB5] hover:bg-[#00ADB5]/90 px-8"
+                onClick={handleDownloadResume}
+              >
+                <Download size={18} className="mr-2" />
+                Download Resume
               </Button>
             </motion.div>
 

@@ -124,7 +124,10 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       onMouseLeave={handleMouseLeave}
       className="transition-all duration-300 ease-out"
     >
-      <Card className="h-full bg-[#393E46] border-[#00ADB5]/20 hover:border-[#00ADB5] transition-colors" style={{ 
+      <Card className="h-full border-[#00ADB5]/20 hover:border-[#00ADB5] transition-all" style={{ 
+        backgroundColor: 'rgba(57, 62, 70, 0.7)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
         boxShadow: '0 10px 30px rgba(0, 173, 181, 0.3)',
         transform: 'translateZ(20px)'
       }}>
