@@ -1,17 +1,8 @@
 import { motion } from "motion/react";
 import FloatingDots from "./FloatingDots";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
 import { ExternalLink } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import SplashScreenImage from "./images/SplashScreen.png";
-
 
 const projects = [
   {
@@ -28,17 +19,14 @@ const projects = [
       "User Research",
       "Wireframing",
       "UI Design",
-      "Wireframing",
       "Prototyping",
       "Interaction Design",
-      "User Interface Design",
       "Usability Testing",
       "Design Systems",
     ],
     image:
       "https://images.unsplash.com/photo-1624357488027-f2235d56bae9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnb3Zlcm5tZW50JTIwd2Vic2l0ZSUyMHN1bW1pdHxlbnwxfHx8fDE3NjQ1OTMxNjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     demoLink: "https://www.g20.in/",
-    githubLink: "#",
   },
   {
     title: "SHV Energy Corporate App",
@@ -54,23 +42,19 @@ const projects = [
       "User Research",
       "Wireframing",
       "UI Design",
-      "Wireframing",
       "Prototyping",
       "Interaction Design",
-      "User Interface Design",
       "Usability Testing",
     ],
     image:
       "https://images.unsplash.com/photo-1759109391527-11b6adf2cc5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbmVyZ3klMjBjb21wYW55JTIwaW5kdXN0cmlhbHxlbnwxfHx8fDE3NjQ1OTMxNjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     demoLink: "https://www.shvenergy.com/",
-    githubLink: "#",
   },
-
   {
     title: "Kashmiri Essence Mobile App",
     client: "Own Project",
     description:
-      "I designed the end-to-end UI/UX for Kashmiri Essence, starting from user research to final high-fidelity screens. I created user flows, wireframes, a complete design system, and interactive prototypes with a culturally inspired visual style. The final design delivers a smooth, modern, and visually rich shopping experience for Kashmiri handicrafts.",
+      "I designed the end-to-end UI/UX for Kashmiri Essence, starting from user research to final high-fidelity screens. I created user flows, wireframes, a complete design system, and interactive prototypes with a culturally inspired visual style.",
     problem:
       "Designed a mobile-first e-commerce experience to help users discover and purchase authentic Kashmiri handicrafts with trust and ease.",
     solution:
@@ -80,154 +64,91 @@ const projects = [
       "User Research",
       "Wireframing",
       "UI Design",
-      "Wireframing",
       "Prototyping",
       "Interaction Design",
-      "User Interface Design",
       "Usability Testing",
     ],
     image: SplashScreenImage,
-    demoLink: "https://www.figma.com/design/WvDhRcbp0ownXcszKRCZOV/Kashmiri-Essencs?node-id=0-1&t=hXCpmDyGHkwWwRPi-1",
-    githubLink: "#",
+    demoLink:
+      "https://www.figma.com/design/WvDhRcbp0ownXcszKRCZOV/Kashmiri-Essencs?node-id=0-1&t=hXCpmDyGHkwWwRPi-1",
   },
-  /*{
-    title: "E-Commerce Mobile App",
-    client: "Fashion Startup",
-    description: "Built with Flutter & Firebase for real-time inventory management and seamless checkout experience.",
-    problem: "Client needed a fast, modern mobile app to compete in the fashion e-commerce space.",
-    solution: "Developed a cross-platform app with real-time inventory, push notifications, and integrated payment gateway.",
-    results: "Reduced checkout time by 30% | 50k+ downloads | 4.8★ rating",
-    tech: ["Flutter", "Firebase", "REST API", "Stripe"],
-    image: "https://images.unsplash.com/photo-1758526213756-9aecbea6bcfc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjBzaG9wcGluZyUyMGFwcHxlbnwxfHx8fDE3NjAzMzc0NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    demoLink: "#",
-    githubLink: "#"
-  },
-  {
-    title: "Healthcare Dashboard",
-    client: "Medical Clinic",
-    description: "A comprehensive web dashboard for patient management, appointment scheduling, and medical records.",
-    problem: "Clinic struggled with paper-based records and manual appointment scheduling.",
-    solution: "Created a React-based dashboard with real-time updates, secure data storage, and automated reminders.",
-    results: "Improved efficiency by 40% | Reduced no-shows by 25%",
-    tech: ["React", "Node.js", "MongoDB", "Express"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBhbmFseXRpY3N8ZW58MXx8fHwxNzYwMzYxMDc0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    demoLink: "#",
-    githubLink: "#"
-  },
-  {
-    title: "Task Management App",
-    client: "Tech Startup",
-    description: "Cross-platform mobile app for team collaboration and project tracking with offline support.",
-    problem: "Remote teams needed a reliable tool that works offline and syncs automatically.",
-    solution: "Built with React Native and implemented offline-first architecture with background sync.",
-    results: "10k+ active users | 95% user satisfaction",
-    tech: ["React Native", "Firebase", "Redux", "AsyncStorage"],
-    image: "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzYwMzQxMzExfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    demoLink: "#",
-    githubLink: "#"
-  }*/
 ];
 
 export function Projects() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] relative overflow-hidden" id="projects">
+    <section className="section" id="projects">
       <FloatingDots />
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl mb-4 text-white">
-            Projects
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Real projects. Real results. See how I've helped
-            clients bring their ideas to life.
+      <div className="container-x px-4">
+        <div className="text-center mb-16">
+          <span className="section-eyebrow">Portfolio</span>
+          <h2 className="section-title">Projects</h2>
+          <p className="section-subtitle">
+            Real projects. Real results. See how I've helped clients bring
+            their ideas to life.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="projects-grid max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full flex flex-col hover:shadow-xl transition-shadow">
-                <CardHeader className="p-0">
-                  <div className="relative h-48 overflow-hidden rounded-t-lg">
-                    <ImageWithFallback
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1 p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3 className="text-[#222831] mb-1">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-gray-500">
-                        {project.client}
-                      </p>
-                    </div>
+              <div className="glass-card flex h-full flex-col overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <ImageWithFallback
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="mb-3">
+                    <h3 className="text-white text-xl mb-1">{project.title}</h3>
+                    <p className="text-sm text-gray-400">{project.client}</p>
                   </div>
 
-                  <p className="text-gray-600 mb-4">
-                    {project.description}
-                  </p>
+                  <p className="text-gray-400 mb-4">{project.description}</p>
 
                   <div className="space-y-3 mb-4">
                     <div>
-                      <p className="text-sm text-[#222831] mb-1">
-                        Problem:
+                      <p className="text-sm accent-text font-medium mb-1">
+                        Problem
                       </p>
-                      <p className="text-sm text-gray-600">
-                        {project.problem}
-                      </p>
+                      <p className="text-sm text-gray-400">{project.problem}</p>
                     </div>
                     <div>
-                      <p className="text-sm text-[#222831] mb-1">
-                        Solution:
+                      <p className="text-sm accent-text font-medium mb-1">
+                        Solution
                       </p>
-                      <p className="text-sm text-gray-600">
-                        {project.solution}
-                      </p>
+                      <p className="text-sm text-gray-400">{project.solution}</p>
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {project.tech.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="outline"
-                        className="border-[#00ADB5] text-[#00ADB5]"
-                      >
+                      <span key={tech} className="chip">
                         {tech}
-                      </Badge>
+                      </span>
                     ))}
                   </div>
-                </CardContent>
-                <CardFooter className="p-6 pt-0 flex gap-2">
-                  <Button
-                    size="sm"
-                    className="bg-[#00ADB5] hover:bg-[#00ADB5]/90 flex-1"
-                    onClick={() =>
-                      window.open(project.demoLink, "_blank")
-                    }
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Demo
-                  </Button>
-                </CardFooter>
-              </Card>
+
+                  <div className="mt-auto">
+                    <button
+                      type="button"
+                      className="btn btn-primary w-full"
+                      onClick={() => window.open(project.demoLink, "_blank")}
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </button>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

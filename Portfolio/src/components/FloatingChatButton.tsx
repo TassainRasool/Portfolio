@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
 import { MessageCircle } from "lucide-react";
-import { Button } from "./ui/button";
 
 export function FloatingChatButton() {
   const handleClick = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    document
+      .getElementById("contact")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -14,13 +15,14 @@ export function FloatingChatButton() {
       transition={{ delay: 1, duration: 0.3 }}
       className="fixed bottom-6 right-6 z-50"
     >
-      <Button
+      <button
+        type="button"
         onClick={handleClick}
-        size="lg"
-        className="rounded-full w-14 h-14 shadow-lg bg-[#00ADB5] hover:bg-[#00ADB5]/90"
+        aria-label="Get in touch"
+        className="btn btn-primary flex h-14 w-14 items-center justify-center rounded-full shadow-lg"
       >
         <MessageCircle size={24} />
-      </Button>
+      </button>
     </motion.div>
   );
 }

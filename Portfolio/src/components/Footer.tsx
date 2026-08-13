@@ -4,111 +4,77 @@ import FloatingDots from "./FloatingDots";
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const quickLinks = [
+    { label: "Skills", id: "skills" },
+    { label: "Projects", id: "projects" },
+    { label: "Services", id: "services" },
+    { label: "About", id: "about" },
+    { label: "Contact", id: "contact" },
+  ];
+
+  const scrollTo = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <footer className="bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] text-white py-12 relative overflow-hidden">
+    <footer className="section py-12 text-white">
       <FloatingDots />
-      <div className="container mx-auto px-4">
+      <div className="container-x px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h4 className="text-xl mb-4 text-[#00ADB5]">
+            <h4 className="accent-text text-xl mb-4">
               Tassain Rasool Malik
             </h4>
             <p className="text-gray-400">
               Crafting digital solutions with passion and precision.
             </p>
           </div>
-          
+
           <div>
-            <h4 className="mb-4">Quick Links</h4>
+            <h4 className="mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
-              <li>
-                <a 
-                  href="#skills" 
-                  className="text-gray-400 hover:text-[#00ADB5] transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#projects" 
-                  className="text-gray-400 hover:text-[#00ADB5] transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#services" 
-                  className="text-gray-400 hover:text-[#00ADB5] transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#contact" 
-                  className="text-gray-400 hover:text-[#00ADB5] transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Contact
-                </a>
-              </li>
+              {quickLinks.map(({ label, id }) => (
+                <li key={id}>
+                  <a
+                    href={`#${id}`}
+                    onClick={scrollTo(id)}
+                    className="footer-link"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="mb-4">Connect</h4>
+            <h4 className="mb-4 text-white">Connect</h4>
             <ul className="space-y-2">
               <li>
-                <a 
-                  href="https://github.com/TassainRasool" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/TassainRasool"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-[#00ADB5] transition-colors"
+                  className="footer-link"
                 >
                   GitHub
                 </a>
               </li>
               <li>
-                <a 
-                  href="https:www.linkedin.com/in/tassainrasool" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/tassainrasool"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-[#00ADB5] transition-colors"
+                  className="footer-link"
                 >
                   LinkedIn
                 </a>
               </li>
-              {/* <li>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-[#00ADB5] transition-colors"
-                >
-                  Twitter
-                </a>
-              </li> */}
               <li>
-                <a 
+                <a
                   href="mailto:iamtassain.00@gmail.com"
-                  className="text-gray-400 hover:text-[#00ADB5] transition-colors"
+                  className="footer-link"
                 >
                   Email
                 </a>
@@ -116,10 +82,17 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-400 flex items-center justify-center gap-2">
-            © {currentYear} Tassain Rasool Malik. Design with <Heart size={16} className="text-[#00ADB5]" fill="currentColor" /> and Passion.
+            © {currentYear} Tassain Rasool Malik. Design with{" "}
+            <Heart
+              size={16}
+              className="text-[#dc2626]"
+              fill="currentColor"
+              aria-hidden="true"
+            />
+            and Passion.
           </p>
         </div>
       </div>

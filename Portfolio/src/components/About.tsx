@@ -3,44 +3,45 @@ import FloatingDots from "./FloatingDots";
 import { Dumbbell, Figma, Zap } from "lucide-react";
 import profileImage from "../assets/DP.jpg";
 
+const stats = [
+  { icon: Figma, value: "3+", label: "Years" },
+  { icon: Zap, value: "3+", label: "Projects" },
+  { icon: Dumbbell, value: "∞", label: "MMA" },
+];
+
 export function About() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#1a1f26] via-[#222831] to-[#2d3541] relative overflow-hidden" id="about">
+    <section className="section" id="about">
       <FloatingDots />
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl mb-4 text-white">About Me</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            More than just visuals ! designing connections that empower users.
+      <div className="container-x px-4">
+        <div className="text-center mb-16">
+          <span className="section-eyebrow">About</span>
+          <h2 className="section-title">About Me</h2>
+          <p className="section-subtitle">
+            More than just visuals! Designing connections that empower users.
           </p>
-        </motion.div>
+        </div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="about-grid">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-[#00ADB5] rounded-2xl transform rotate-6"></div>
+                <div className="absolute inset-0 bg-[#dc2626] rounded-2xl transform rotate-6 opacity-80" />
                 <img
                   src={profileImage}
-                  alt="Developer Portrait"
-                  className="relative z-10 rounded-2xl w-full h-auto shadow-xl"
+                  alt="Portrait of Tassain Rasool"
+                  className="relative z-10 rounded-2xl w-full h-auto shadow-xl border-2 border-[#dc2626]/40"
                 />
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
@@ -48,48 +49,42 @@ export function About() {
             >
               <div>
                 <h3 className="text-2xl text-white mb-4">
-                  Hi, I am a Designer               </h3>
-                <p className="text-gray-300 leading-relaxed mb-4">
-                  Over 3 years, I have architected user-centric designs across critical sectors, including Fintech, Healthtech,
-                  and E-commerce. My expertise is in blending rigorous user research and design thinking with pixel-perfect execution,
-                  ensuring products are not only beautiful but also deliver tangible increases in user engagement and conversion rates.
+                  Hi, I'm a Designer
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-4">
+                  Over 3 years, I have architected user-centric designs across
+                  critical sectors, including Fintech, Healthtech, and
+                  E-commerce. My expertise is in blending rigorous user
+                  research and design thinking with pixel-perfect execution,
+                  ensuring products are not only beautiful but also deliver
+                  tangible increases in user engagement and conversion rates.
                 </p>
-                <p className="text-gray-600 leading-relaxed">
-                  When I'm not refining Figma prototypes or analyzing heatmaps, I'm usually found diving into emerging design trends,
-                  sketching new concepts, or finding inspiration in art and architecture while enjoying a good cup of coffee.
+                <p className="text-gray-400 leading-relaxed">
+                  When I'm not refining Figma prototypes or analyzing heatmaps,
+                  I'm usually found diving into emerging design trends,
+                  sketching new concepts, or finding inspiration in art and
+                  architecture while enjoying a good cup of coffee.
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 py-6">
-                <div className="text-center">
-                  <div className="flex justify-center mb-2">
-                    <div className="p-3 bg-[#00ADB5]/10 rounded-lg">
-                      <Figma className="text-[#00ADB5]" size={24} />
+              <div className="stats-grid py-6">
+                {stats.map((stat) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div key={stat.label} className="text-center">
+                      <div className="flex justify-center mb-2">
+                        <div className="accent-soft flex size-12 items-center justify-center rounded-lg">
+                          <Icon className="text-[#ef4444]" size={24} />
+                        </div>
+                      </div>
+                      <p className="text-2xl text-white font-bold">
+                        {stat.value}
+                      </p>
+                      <p className="text-sm text-gray-400">{stat.label}</p>
                     </div>
-                  </div>
-                  <p className="text-2xl text-white">3+</p>
-                  <p className="text-sm text-gray-300">Years</p>
-                </div>
-                <div className="text-center">
-                  <div className="flex justify-center mb-2">
-                    <div className="p-3 bg-[#00ADB5]/10 rounded-lg">
-                      <Zap className="text-[#00ADB5]" size={24} />
-                    </div>
-                  </div>
-                  <p className="text-2xl text-white">3+</p>
-                  <p className="text-sm text-gray-300">Projects</p>
-                </div>
-                <div className="text-center">
-                  <div className="flex justify-center mb-2">
-                    <div className="p-3 bg-[#00ADB5]/10 rounded-lg">
-                      <Dumbbell className="text-[#00ADB5]" size={24} />
-                    </div>
-                  </div>
-                  <p className="text-2xl text-white">∞</p>
-                  <p className="text-sm text-gray-300">MMA</p>
-                </div>
+                  );
+                })}
               </div>
-
             </motion.div>
           </div>
         </div>
